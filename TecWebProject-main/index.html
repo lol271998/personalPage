@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang = "pt">
+    <head>
+        <meta charset=UTF-8>               <!-- para caracteres acentuados   -->
+        <title>Mancala - The Game</title>  <!-- texto na decoração da janela -->
+        <link rel="stylesheet" href="styles_test.css">
+        <script defer src="./index.js"></script>
+    </head>
+
+    <body>
+        <div id = frontBanner>
+            <img id = title src = "mancala_title.png" alt = "MANCALA">
+        </div>
+        <div class = "container">
+            
+            <!--Login-->
+            <div class = "config" id = loginDiv>
+                <form class = form>
+                    <p class = "login">
+                        <label class = "login">Utilizador</label>
+                    </p>
+                        <input type = "text" class = "input" id = "u_name" name = "username">
+                    <p class = "login">
+                        <label class = "login">Password</label>
+                    </p>
+                    <input type="password" class = "input" id = "p_name" name = "password">
+                    <br>
+                    <button class = "play" id ="logb" type = "button" onclick = register_log(1)>Login</button>
+                    <br>
+                    <button class = "play" id = "guestb" type = "button" onclick = hideLogInGuest()>Jogar como Convidado</button>
+                    <br>
+                    <button class = "play" id = "register" type = "button" onclick = register_log(0)>Registar</button>                
+                </form>
+            </div>
+
+            <!--Configuration-->
+            <div class = "config" id = "settingsDiv">
+                <form class = "form" id = "form">
+
+                    <br>
+                    <label>Nº Cavidades </label>
+                    <br>
+                
+                    <input type="radio" id="n2" name="n_cav" value=2>                   
+                    <label for="n2">2</label>
+
+                    <input type="radio" id="n3" name="n_cav" value=3>
+                    <label for="n3">3</label>
+
+                    <input type="radio" id="n3" name="n_cav" value=6>
+                    <label for="n6">6</label>
+                
+                    <input type="radio" id="n9" name="n_cav" value=9> 
+                    <label for="n9">9</label>                    
+                    
+                    <br>
+                    <label>Nº inicial de sementes </label>
+                    
+                    <input type = "number" min = 1 id = "n_seed" required/>
+                    <br>
+                    <br>
+    
+                    <label> Jogar contra PC </label>
+                    <br>
+                    
+                    <input type = "radio" id=pc_yes name=pc_play value = 1/>
+                    <label for = "pc_yes">Sim</label>
+                    <input type = "radio" id=pc_no name=pc_play value = 0/>
+                    <label for = "pc_no">Não</label>
+                    <br>
+                    
+                    <label id = "difficulty">Dificuldade</label>
+                    <select id = "select_dif" Size="Number_of_options">  
+                        <option value = 1>1</option>  
+                        <option value = 2>2</option>  
+                        <option value = 3>3</option>  
+                        <option value = 4>4</option>
+                        <option value = 5>5</option>
+                        <option value = 6>6</option>
+                        <option value = 7>7</option>
+                        <option value = 8>8</option>
+                        <option value = 9>9</option>
+                        <option value = 10>10</option>  
+                    </select>  
+                    <br>
+                    <br>
+                    <button class = "play" id = "config" type = "button" onclick = hideConfigAndSubmit()>Submeter configuraçao</button>
+                </form>
+            </div>
+            
+            <!--Instructions-->
+            <div class = "merging_window" id = "instructions">
+                <div class = "window_header">
+                    <p style="font-weight: bold;">Instruções</p>
+                    <button class = "close_window" onclick = hideInstructions()>X</button>
+                </div>
+                <div class = "window_content">
+                    <br>
+                    <button class = "radio_instr" type = "radio" id=start_b onclick=changeInstruction(1)>Como mover as peças</button>
+                    <br>
+                    <button class = "radio_instr" type = "radio" id=capture_b onclick = changeInstruction(2)>Como capturar as peças</button>
+                    <br>
+                    <button class = "radio_instr" type = "radio" id=end_b onclick = changeInstruction(3)>Como terminar o jogo</button>   
+                    <br>
+                    <p class = "explain" id = "start">O jogador, na sua vez, clica num buraco 
+                        (da fila mais perto de si) 
+                        que tenha pelo menos uma conta. 
+                        Esta acção retirará todas as contas do buraco 
+                        seleccionado e coloca-as, uma a uma, 
+                        nos buracos seguintes, no sentido contrário ao 
+                        dos ponteiros do relógio. 
+                        A área do próprio jogador (do seu lado direito) 
+                        é também usada nesta separação de contas e, 
+                        quando uma conta lá é colocada, 
+                        o jogador ganha um ponto. 
+                        O jogador não pode colocar contas na área do 
+                        jogador adversário.
+                    </p>
+                    <p class = "explain" id = "capture"> Se a última conta (da jogada actual) for colocada 
+                        num buraco vazio (no lado do jogador), todas as
+                        contas da mesma coluna, na linha adversária são 
+                        capturadas e colocadas na área do jogador que 
+                        fez a jogada.
+                    </p>
+                    <p class = "explain" id = "end"> Jogo termina quando um dos jogadores não pode jogar
+                        <br>… porque todas as suas cavidades estão vazias
+                        <br>O outro jogador recolhe sementes nas suas cavidades …
+                        <br>… que são colocadas no seu armazém
+                        <br>Ganha jogador cujo armazém tem mais sementes
+                    </p>
+                </div>
+            </div>
+
+            <!--State of the Game-->
+            <div id = "state">
+                <p>Estado do Jogo:</p>
+                <p id = 'turn'></p>
+            </div>
+
+            <!--Scores-->
+            <div class = "merging_window" id = "scores">
+                <div class = "window_header" id = scores_window>
+                    <button class = "close_window" onclick = hideScores()>X</button>
+                </div>
+            </div>
+            
+            <!--Board-->
+            <div class = "board" id = "board">       
+            </div>
+        </div>
+
+        <!--Bottom Menu-->
+        <div class = "bottom_container" id = "bottom_container">
+            <button class = "menu_button" onclick=showInstructions()>Instruções</li>
+            <!--<button class = "menu_button" onclick=startGame()>Começar o jogo</li>-->
+            <button class = "menu_button" onclick=leave()>Desistir</li>
+            <button class = "menu_button" onclick=getRanking()>Visualizar classificações</li>
+            <button class = "menu_button" id="user">UserName: </li>
+        </div>
+    </body>
+</html>

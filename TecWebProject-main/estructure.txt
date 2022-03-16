@@ -1,0 +1,9 @@
+MANCALA <h1>
+
+Nº de Cabidades:        _ (2,3,6,8)
+Nº Inicial de Sementes: _ (Qualquer)
+Jogar contra PC:        _ Sim _ Não
+    Caso sim:
+        Dificuldade: [1,u]
+
+Tabuleiro

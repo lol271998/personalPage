@@ -1,0 +1,219 @@
+#frontBanner {
+    position:relative;
+}
+#title {
+    display: block;
+    margin: 0 auto;
+}
+
+body{
+    background-color: #aad82234;
+}
+
+.container {
+    width: 100%;
+    position:relative;
+    height: auto;
+}
+
+.config {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    text-align: center;
+    width: 30%;
+    height: 60%;
+    margin-left: 33%;
+    margin-right: 33%;
+    margin-top: 4.5%;
+    padding: 1%;
+    background-image:url("wood.jpg");
+    border-style: outset;
+    border-radius: 20px;
+    border-color:rgba(99, 49, 49, 0.795);
+    font-size: x-large;
+    color:rgba(255, 255, 255, 0.733);
+}
+
+.play {
+    padding: 10px;
+    color:saddlebrown;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 20px;
+}
+
+#select{
+    border-radius: 20px;
+}
+
+.input{
+    border-radius: 20px;
+    margin: 10px;
+}
+
+#settingsDiv {
+    visibility: hidden;
+}
+
+#difficulty, #select_dif{
+    visibility: hidden;
+}
+
+#pc_yes:checked ~ #difficulty{
+    visibility: visible;
+}
+
+#pc_yes:checked ~ #select_dif{
+    visibility: visible;
+}
+
+#state {
+    width: 15%;
+    right: 16px;
+    visibility: hidden;
+    color: rgba(255, 255, 255, 0.733);
+    position: absolute;
+    background-image: url(wood.jpg);
+    border-style: outset;
+    border-radius: 20px;
+    border-color: rgba(99, 49, 49, 0.795);
+    padding: 1%;
+    display: inline-block;
+}
+
+.merging_window{
+    display: flex;
+    width: 300px;
+    height: 60%;
+    opacity: 0.2;
+    position: relative;
+    visibility: hidden;
+    color:rgba(255, 255, 255, 0.733);
+    position: absolute;
+    background-image:url("wood.jpg");
+    border-style: outset;
+    border-radius: 20px;
+    border-color:rgba(99, 49, 49, 0.795);
+    padding: 1%;
+    margin-top: 4.5%;
+}
+
+.merging_window:hover {
+    opacity: 1.0;
+}
+
+.explain {
+    position: absolute;
+}
+
+.radio_instr {
+    position:relative;
+}
+
+#start, #capture, #end {
+    visibility: hidden;
+}
+
+
+.close_window {
+    position: absolute;
+    right: 6px;
+    top: 3px;
+    border-radius: 90%;
+}
+
+.bottom_container {
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5%;
+}
+
+.menu_button {
+    color:rgba(255, 255, 255, 0.733);
+    background-image:url("wood.jpg");
+    border-style: outset;
+    border-radius: 20px;
+    border-color:rgba(99, 49, 49, 0.795);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+/* Board */
+.board {
+    visibility: hidden;
+    position:relative;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 600px;
+    background-image:url("wood.jpg");
+    border-radius:5%;
+}
+
+.storage {
+    position: absolute;
+    width: 10%;
+    height: 90%;
+    top: 5%;
+    bottom: 5%;
+    border-radius: 5%;
+    background-image:url("wood.jpg");
+    filter:brightness(0.5);
+}
+
+#storage_1 {
+    right: 12px;
+}
+
+#storage_2 {
+    left: 12px;
+}
+
+#game_area {
+    position: absolute;
+    display: inline-block;
+    top: 0.5%;
+    bottom: 0.5%;
+    left: 11%;
+    right: 11%;
+}
+
+.column {
+    position:relative;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.cavity {
+    cursor: pointer;
+    margin-bottom: 5%;
+    margin-right: 10%;
+    margin-left: 10%;
+    height: 25%;
+    background-image:url("wood.jpg");
+    border-radius: 5%;
+    filter:brightness(0.5);
+}
+
+div[id*="p2"] {
+    margin-top: 150px;
+}
+
+.seed_container {
+    position: absolute;
+}
+
+.seed {
+    position:relative;
+    display: inline-block;
+    width: 30%;
+    height: 30%;
+    border-radius: 90%;
+    background-color: red;
+}

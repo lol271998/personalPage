@@ -1,0 +1,20 @@
+const data = {
+	"board":{
+  	"turn":
+    	"lol271998",
+    "sides":{
+    	"lol271998":{
+      		"store":0,
+        	"pits":[4,4,4]
+       },
+       "lol271998_":{
+       		"store":0,
+          "pits":[4,4,4]
+       }
+     }
+   },
+   "stores":{
+   "lol271998":0,
+   "lol271998_":0
+   }
+	}
